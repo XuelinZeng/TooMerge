@@ -42,6 +42,8 @@
 export default {
   name: 'hello',
   data () {
+    this.$store.commit('increment')
+    console.log('count', this.$store.state.count)
     return {
       msg: 'Welcome to Your Vue.js App'
     }

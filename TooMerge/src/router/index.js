@@ -4,8 +4,10 @@ import Hello from '@/components/Hello'
 import Login from '@/components/Login'
 import MainEdit from '@/components/MainEdit'
 import NewProject from '@/components/NewProject'
+import Vuex from 'vuex'
 
 Vue.use(Router)
+Vue.use(Vuex)
 
 export default new Router({
   routes: [
