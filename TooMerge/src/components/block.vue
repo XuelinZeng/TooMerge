@@ -1,14 +1,20 @@
 <template>
-    <iframe :src="url"></iframe>
+    <iframe :src="url" :style="{width:iframe_width + 'px', height:600 +'px', margin:20 +'px'}"></iframe>
 </template>
 
 <script>
 export default {
   name: 'block',
-  props: ['url'],
+  props: ['url', 'rowPerItem'],
   data () {
     return {
       webs: ['https://www.baidu.com', 'https://www.jd.com']
+    }
+  },
+
+  computed: {
+    iframe_width: function () {
+      return Math.floor(900 / this.rowPerItem)
     }
   }
 }

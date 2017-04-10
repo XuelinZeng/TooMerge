@@ -7,5 +7,8 @@ export default {
 
   [types.DEC_COUNT] (state, count) {
     state.count = state.count - count
+  },
+  [types.SET_USERNAME] (state, username) {
+    state.username = username
   }
 }

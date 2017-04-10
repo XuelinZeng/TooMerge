@@ -18,24 +18,18 @@
         </div>
       </div>
     </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-1 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">New Project <span class="sr-only">(current)</span></a></li>
-            <li><a href="http://v3.bootcss.com/examples/dashboard/#">User Profile <span class="sr-only">(current)</span></a></li>
-            <li><a href="http://v3.bootcss.com/examples/dashboard/#">Historical Project</a></li>
-            <li><a href="http://v3.bootcss.com/examples/dashboard/#">Historical Layout</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        
+         
+    <div class="col-md-10 col-md-offset-2 main">
+          <div class="container-fluid row" v-for="n in sRowNumber">
+            <span>
+            <block v-for="i in rowPerItem" :key="i" :url="getURL(webs,n,i)" :rowPerItem="rowPerItem" v-if="getURL(webs,n,i)"></block>
+          </span>
         </div>
       </div>
-    </div>
+            <div class="side-bar">  
+    <button type="button" class="btn btn-default btn-lg">Save</button>  
   </div>
+</div> 
 </template>
 
 <script>
@@ -48,7 +42,20 @@ export default {
   name: 'MainEdit',
   data () {
     return {
-      webs: ['https://www.baidu.com', 'https://www.jd.com']
+      webs: ['https://www.baidu.com', 'https://www1.baidu.com', 'http://123.com'],
+      rowPerItem: 3
+    }
+  },
+  computed: {
+    sRowNumber: function () {
+      return Math.floor(this.webs.length / this.rowPerItem) + 1
+    }
+  },
+  methods: {
+    getURL (webArray, n, i) {
+      console.log(webArray, n, i)
+      let index = (n - 1) * this.rowPerItem + (i - 1)
+      return index < webArray.length ? webArray[index] : 0
     }
   }
 }
@@ -56,4 +63,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.side-bar {width: 66px;position: fixed;bottom: 20px;right: 25px;font-size: 0;line-height: 0;z-index: 100;} 
+.side-bar a {width: 66px;height: 66px;display: inline-block;background-color: #ddd;margin-bottom: 2px;} 
+.side-bar a:hover {background-color: #669fdd;} 
+.side-bar .icon-qq {background-position: 0 -62px;} 
+.side-bar .icon-chat {background-position: 0 -130px;position: relative;} 
+.side-bar .icon-blog {background-position: 0 -198px;} 
+.side-bar .icon-mail {background-position: 0 -266px;} 
 </style>
