@@ -31,7 +31,24 @@
         </div>
         
         <div class="col-sm-9 col-sm-offset-3 col-md-10 main">
-      
+            <div v-for="n in total" class="form-group" id="url-add">
+              <input type="text" class="form-control" id="url" placeholder="Please input the url you want to merge" style="width:600px">
+            </div>
+
+            <div class="ratio" style="height:40px">
+              <label class="radio-inline" style="width:250px">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> horrizontal
+              </label>
+              <label class="radio-inline" style="width:250px">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> vertical
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> custom
+              </label>
+            </div>
+
+            <button v-on:click="total += 1" class="btn btn-default" style="width:298px">Add</button>
+            <button class="btn btn-primary" style="width:298px">Submit</button>
         </div>
       </div>
     </div>
@@ -48,7 +65,8 @@ export default {
   name: 'MainEdit',
   data () {
     return {
-      webs: ['https://www.baidu.com', 'https://www.jd.com']
+      webs: ['https://www.baidu.com', 'https://www.jd.com'],
+      total: 2
     }
   }
 }
