@@ -9,9 +9,9 @@
                             <img src="static/layouts/layout/img/logo.png" alt="logo" class="logo-default"> 
                         </a>-->
                         <p style="color:white">TooMerge</p>
-                        <div class="menu-toggler sidebar-toggler">
+                        <!--<div class="menu-toggler sidebar-toggler">
                             <span></span>
-                        </div>
+                        </div>-->
                     </div>
                     <!-- END LOGO -->
                     <!-- BEGIN RESPONSIVE MENU TOGGLER -->

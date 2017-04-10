@@ -1,43 +1,42 @@
 <template>
- <div>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="http://v3.bootcss.com/examples/dashboard/#">TooMerge</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a style="padding-top:10px;padding-bottom:5px"><img src="../assets/test.jpg" height="30" width="30" class="img-responsive"></a></li>
-            <li><a href="http://v3.bootcss.com/examples/dashboard/#">Test Lee</a></li>
-            <li><a href="http://v3.bootcss.com/examples/dashboard/#">Log Out</a></li>
-            <li><a href="http://v3.bootcss.com/examples/dashboard/#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
-         
-    <div class="col-md-10 col-md-offset-2 main">
-          <div class="container-fluid row" v-for="n in sRowNumber">
-            <span>
-            <block v-for="i in rowPerItem" :key="i" :url="getURL(webs,n,i)" :rowPerItem="rowPerItem" v-if="getURL(webs,n,i)"></block>
+ <div class="page-wrapper">
+    <banner></banner>
+    <div class="page-container">
+      <leftnav></leftnav>
+      <!--<div class="col-md-10 col-md-offset-2 main">
+        <div v-for="n in RowNumber" class="row ui-sortable" id="sortable_protlets">
+          <span>
+            <div class="collum sortable">
+              <block v-for="i in rowPerItem" :key="i" :url="getURL(webs,n,i)" :rowPerItem="rowPerItem" v-if="getURL(webs,n,i)"></block>
+            </div>
           </span>
         </div>
+      </div>-->
+      <div class="col-md-10 col-md-offset-2 main">
+          <div class="container-fluid row" v-for="n in sRowNumber">
+            <span>
+              <block v-for="i in rowPerItem" :key="i" :url="getURL(webs,n,i)" :rowPerItem="rowPerItem" v-if="getURL(webs,n,i)"></block>
+            </span>
+          </div>
       </div>
-            <div class="side-bar">  
-    <button type="button" class="btn btn-default btn-lg">Save</button>  
-  </div>
-</div> 
+      <div class="side-bar">  
+        <button type="button" class="btn btn-success">Save</button>  
+      </div>
+    
+    </div>
+  </div> 
 </template>
 
 <script>
 import block from '@/components/block'
+import banner from '@/components/banner'
+import leftnav from '@/components/leftnav'
 
 export default {
   components: {
-    block
+    block,
+    banner,
+    leftnav
   },
   name: 'MainEdit',
   data () {
@@ -48,7 +47,7 @@ export default {
   },
   computed: {
     sRowNumber: function () {
-      return Math.floor(this.webs.length / this.rowPerItem) + 1
+      return Math.ceil(this.webs.length / this.rowPerItem)
     }
   },
   methods: {
