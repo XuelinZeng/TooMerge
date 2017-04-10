@@ -1,4 +1,5 @@
 <template>
+<div>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -6,7 +7,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a style="padding-top:10px;padding-bottom:5px"><img src="../assets/test.jpg" height="30" width="30" class="img-responsive"></a></li>
+            <li><a style="padding-top:10px;padding-bottom:5px"><img src="./assets/test.jpg" height="30" width="30" class="img-responsive"></a></li>
             <li><a href="http://v3.bootcss.com/examples/dashboard/#">Test Lee</a></li>
             <li><a href="http://v3.bootcss.com/examples/dashboard/#">Log Out</a></li>
             <li><a href="http://v3.bootcss.com/examples/dashboard/#">Help</a></li>
@@ -28,12 +29,14 @@
             <li><a href="http://v3.bootcss.com/examples/dashboard/#">Historical Layout</a></li>
           </ul>
         </div>
-        
+
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    
+          <router-view></router-view>
         </div>
       </div>
     </div>
+
+</div>
 </template>
 
 <script>
