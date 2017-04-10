@@ -7,7 +7,9 @@ Vue.use(Vuex)
 
 const state = {
   username: '',
-  count: 0
+  count: 0,
+  webs: [],
+  rowNumber: 0
 }
 
 export default new Vuex.Store({

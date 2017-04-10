@@ -5,29 +5,29 @@
     <leftnav></leftnav>
     <div class="page-content-wrapper">
     <div class="col-sm-9 col-sm-offset-2 col-md-10 main" style="padding-top:30px; padding-left:100px; background-color:white; height:1000px">
-            <div v-for="n in total" class="form-group" id="url-add">
-              <input type="text" class="form-control" id="url" placeholder="Please input the url you want to merge" style="width:600px">
+            <div v-for="(item,i) in webs" class="form-group" id="url-add">
+              <input type="text" class="form-control" id="url" placeholder="Please input the url you want to merge" style="width:600px" v-model:value="webs[i]" />
             </div>
 
             <div class="ratio" style="height:40px">
               <label class="radio-inline" style="width:250px">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" v-model="picked"> horrizontal
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="horrizontal" v-model="picked"> horrizontal
               </label>
               <label class="radio-inline" style="width:250px">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" v-model="picked"> vertical
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="vertical" v-model="picked"> vertical
               </label>
               <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" v-model="picked"> custom
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="custom" v-model="picked"> custom
               </label>
 
             </div>
 
               <div v-if="custom" class="form-group" id="url-add">
-                <input  type="text" class="form-control" id="url" placeholder="Please input the amount of collums" style="width:600px">
+                <input  type="text" class="form-control" id="url" placeholder="Please input the amount of collums" style="width:600px" v-model="rownumber">
               </div>
 
-            <button v-on:click="total += 1" class="btn green btn-outline" style="width:298px">Add</button>
-            <button type="button" class="btn green" style="width:298px">Submit</button>
+            <button v-on:click="addValue()" class="btn green btn-outline" style="width:298px">Add</button>
+            <button v-on:click="submitToEdit()" type="button" class="btn green" style="width:298px">Submit</button>
         </div>
       </div>
     </div>
@@ -50,9 +50,25 @@ export default {
   name: 'MainEdit',
   data () {
     return {
-      webs: ['https://www.baidu.com', 'https://www.jd.com'],
-      total: 2,
-      custom: true
+      webs: ['https://www.baidu.com', 'https://www.jd.com', 'http://www.abd.com/'],
+      picked: '',
+      rownumber: 0
+    }
+  },
+  computed: {
+    custom: function () {
+      return this.picked === 'custom'
+    }
+  },
+  methods: {
+    addValue () {
+      this.webs.push('')
+    },
+    submitToEdit () {
+      this.$store.commit('SET_WEBS', this.webs)
+      this.$store.commit('SET_ROWNUMBER', this.rownumber)
+      console.log(this.$store.state.webs.length)
+      this.$router.push('/edit')
     }
   }
 }

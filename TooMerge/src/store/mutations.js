@@ -10,5 +10,11 @@ export default {
   },
   [types.SET_USERNAME] (state, username) {
     state.username = username
+  },
+  [types.SET_WEBS] (state, webs) {
+    state.webs = webs
+  },
+  [types.SET_ROWNUMBER] (state, rowNumber) {
+    state.row_number = rowNumber
   }
 }
