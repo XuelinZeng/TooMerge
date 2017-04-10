@@ -1,3 +1,5 @@
 export const ADD_COUNT = 'ADD_COUNT'
 export const DEC_COUNT = 'DEC_COUNT'
 export const SET_USERNAME = 'SET_USERNAME'
+export const SET_WEBS = 'SET_WEBS'
+export const SET_ROWNUMBER = 'SET_ROWNUMBER'

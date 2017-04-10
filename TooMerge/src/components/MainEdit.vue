@@ -42,8 +42,8 @@ export default {
   name: 'MainEdit',
   data () {
     return {
-      webs: ['https://www.baidu.com', 'https://www1.baidu.com', 'http://123.com'],
-      rowPerItem: 3
+      webs: ['https://www.baidu.com', 'https://www1.baidu.com', 'http://hao123.com'],
+      rowPerItem: 2
     }
   },
   computed: {

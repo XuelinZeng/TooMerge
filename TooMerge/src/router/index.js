@@ -20,7 +20,7 @@ export default new Router({
       component: Login
     },
     {
-      path: '/edit',
+      path: '/edit/:urls/:rownumber',
       name: 'Edit',
       component: MainEdit
     },
